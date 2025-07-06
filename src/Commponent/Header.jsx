@@ -157,7 +157,7 @@ export default function Header() {
         <Container maxWidth={false}>
           <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Box component="img" src="../../Image/l4.png" alt="ManageIt Logo"
+              <Box component="img" src="/l4.png" alt="ManageIt Logo"
                 sx={{ width: 40, height: 40, marginRight: 2 }} />
               <Typography
                 variant="h6"
