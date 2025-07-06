@@ -48,9 +48,9 @@ export default function ChatApp({ ProjectId }) {
     if (isLoadingMessages) return;
     setIsLoadingMessages(true);
     const res = await FetchFromAPI(`ProjectChatMessage/GetProjectChatMessagesPaged?ProjectID=${ProjectId}&PageNumber=${page}&PageSize=${pageSize}`);
+    setIsLoadingMessages(false);
     const data = await res.json();
     setMessages(prev => [...prev, ...data]);
-    setIsLoadingMessages(false);
   };
 
   useEffect(() => {

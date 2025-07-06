@@ -235,26 +235,11 @@ export default class SimpleCache {
 
     }
 
-
-
-
-
-    // ⬇️ دالة طباعة جميع Users
-    printUsers() {
-        console.log('----- Users -----');
-        for (const [key, value] of this.#Users.entries()) {
-            console.log(`UserID: ${key} → `, value);
-        }
+    clearAllMemberData() {
+        this.#ProjectMembers.clear();
+        this.#ChatMembers.clear();
+        this.#TaskChatMembers.clear();
+        this.#ProjectMembersOfUpdateTask.clear();
     }
 
-    // ⬇️ دالة طباعة جميع ProjectMembers
-    printProjectMembers() {
-        console.log('----- Project Members -----');
-        for (const [pageNumber, members] of this.#ProjectMembers.entries()) {
-            console.log(`Page: ${pageNumber}`);
-            members.forEach((member, index) => {
-                console.log(`  [${index}] `, member);
-            });
-        }
-    }
 }

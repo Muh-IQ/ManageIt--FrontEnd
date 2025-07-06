@@ -9,8 +9,10 @@ import ProjectCard from './ProjectCard'
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FetchFromAPI } from '../Utility/connection';
+import SimpleCache from '../Utility/SimpleCache';
 
 export default function Home() {
+    const cache = new SimpleCache();
     const [projects, setProjects] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);
     const [countProjects, setCountProjects] = useState(0);
@@ -43,6 +45,7 @@ export default function Home() {
     }
 
     useEffect(() => {
+        cache.clearAllMemberData();
         fetchCountProjects();
     }, []);
     useEffect(() => {
@@ -73,7 +76,7 @@ export default function Home() {
             <Container maxWidth="lg" sx={{ marginTop: '80px' }}>
                 <Box sx={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center' }}>
                     <Link to={'/AddNewPoject'}>
-                        <Card  key={0}
+                        <Card key={0}
                             sx={{
                                 borderRadius: '12px',
                                 minWidth: 275,

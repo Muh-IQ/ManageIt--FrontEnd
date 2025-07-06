@@ -74,9 +74,9 @@ export default function LocalChatApp({ taskID }) {
     setIsLoadingMessages(true);
 
     const res = await FetchFromAPI(`TaskChatMessage/GetTaskChatMessagesPaged?TaskID=${taskID}&PageNumber=${page}&PageSize=${pageSize}`);
+    setIsLoadingMessages(false);
     const data = await res.json();
 
-    setIsLoadingMessages(false);
     setMessages(prev => [...prev, ...data]);
   };
 
